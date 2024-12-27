@@ -1,0 +1,198 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Color Palette */
+:root {
+    --primary-color: #141414; /* Dark background */
+    --secondary-color: #00BFFF; /* Highlight blue */
+    --text-light: #f9f9f9; /* Light text */
+    --text-muted: #999; /* Muted text */
+    --dark-gray: #1e1e1e; /* Card background */
+    --positive-green: #4caf50; /* Positive change */
+    --negative-red: #f44336; /* Negative change */
+}
+
+/* Header */
+.header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.header .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.header nav ul {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.header nav ul li {
+    position: relative;
+}
+
+.header nav ul li a {
+    color: var(--text-light);
+    font-weight: bold;
+    padding: 8px 12px;
+    transition: background 0.3s;
+}
+
+.header nav ul li a:hover {
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+}
+
+.header nav ul li .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--dark-gray);
+    padding: 10px 0;
+    display: none;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.header nav ul li:hover .dropdown {
+    display: block;
+}
+
+.header nav ul li .dropdown li a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--text-light);
+    white-space: nowrap;
+}
+
+/* News Section */
+.news-list {
+    padding: 4rem 1rem;
+    text-align: center;
+    background-color: var(--primary-color);
+}
+
+.news-list .section-title {
+    font-size: 2.5rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.news-list .section-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.news-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* News Card Container */
+.news-card {
+    background-color: var(--dark-gray);
+    color: var(--text-light);
+    padding: 1.5rem;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures content is evenly spaced */
+    height: auto; /* Let the card grow based on content height */
+    max-height: 500px; /* Set a maximum height to avoid excessive space */
+}
+
+/* Hover effect for the news card */
+.news-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8);
+}
+
+.news-card .news-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.news-card .news-summary {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.news-card .news-date {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.news-card .news-sectors {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    margin-top: 1rem;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--dark-gray);
+    color: var(--text-light);
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.footer-info img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--secondary-color);
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.social-media a {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    margin: 0 10px;
+}
