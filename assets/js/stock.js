@@ -1,58 +1,50 @@
 // stock.js
+const stockData = [
+    { symbol: 'AAPL', name: 'Apple Inc.', price: 178.56, change: 1.35, volume: '34.2M' },
+    { symbol: 'TSLA', name: 'Tesla Inc.', price: 233.42, change: -2.45, volume: '28.1M' },
+    { symbol: 'AMZN', name: 'Amazon.com Inc.', price: 122.78, change: 0.89, volume: '42.7M' }
+];
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Sample stock data, which you can replace with data from an API
-    const stockData = [
-        { name: "Apple Inc. (AAPL)", price: 178.56, change: +1.35, volume: 34200000, symbol: "AAPL" },
-        { name: "Tesla Inc. (TSLA)", price: 233.42, change: -2.45, volume: 28100000, symbol: "TSLA" },
-        { name: "Amazon.com Inc. (AMZN)", price: 122.78, change: +0.89, volume: 42700000, symbol: "AMZN" },
-        { name: "Microsoft Corp. (MSFT)", price: 299.99, change: +0.58, volume: 22200000, symbol: "MSFT" },
-        // Add more stocks here or fetch from an API
-    ];
+function createStockCard(stock) {
+    const stockCard = document.createElement('div');
+    stockCard.classList.add('stock-card');
 
-    // Get the container where stock cards will be appended
-    const stockGrid = document.getElementById("stock-grid");
+    const stockName = document.createElement('h3');
+    stockName.textContent = `${stock.name} (${stock.symbol})`;
+    stockCard.appendChild(stockName);
 
-    // Function to create stock card elements
-    const createStockCard = (stock) => {
-        const card = document.createElement("div");
-        card.classList.add("stock-card");
+    const stockPrice = document.createElement('p');
+    stockPrice.classList.add('stock-price');
+    stockPrice.textContent = `$${stock.price}`;
+    stockCard.appendChild(stockPrice);
 
-        const name = document.createElement("h3");
-        name.classList.add("stock-name");
-        name.textContent = stock.name;
+    const stockChange = document.createElement('p');
+    stockChange.classList.add('stock-change');
+    stockChange.classList.add(stock.change > 0 ? 'positive' : 'negative');
+    stockChange.textContent = `${stock.change > 0 ? '+' : ''}${stock.change}%`;
+    stockCard.appendChild(stockChange);
 
-        const price = document.createElement("p");
-        price.classList.add("stock-price");
-        price.textContent = `$${stock.price.toFixed(2)}`;
+    const stockVolume = document.createElement('p');
+    stockVolume.classList.add('stock-volume');
+    stockVolume.textContent = `Volume: ${stock.volume}`;
+    stockCard.appendChild(stockVolume);
 
-        const change = document.createElement("p");
-        change.classList.add("stock-change");
-        change.classList.add(stock.change >= 0 ? "positive" : "negative");
-        change.textContent = `${stock.change >= 0 ? "+" : ""}${stock.change.toFixed(2)}%`;
+    const viewDetailsBtn = document.createElement('a');
+    viewDetailsBtn.classList.add('btn-primary');
+    viewDetailsBtn.href = `stock-detail.html?symbol=${stock.symbol}`;
+    viewDetailsBtn.textContent = 'View Details';
+    stockCard.appendChild(viewDetailsBtn);
 
-        const volume = document.createElement("p");
-        volume.classList.add("stock-volume");
-        volume.textContent = `Volume: ${stock.volume.toLocaleString()}`;
+    return stockCard;
+}
 
-        const detailsLink = document.createElement("a");
-        detailsLink.href = `details/${stock.symbol.toLowerCase()}.html`; // Assume detail pages are named by symbol (e.g., aapl.html)
-        detailsLink.classList.add("btn-primary");
-        detailsLink.textContent = "View Details";
-
-        // Append all elements to the card
-        card.appendChild(name);
-        card.appendChild(price);
-        card.appendChild(change);
-        card.appendChild(volume);
-        card.appendChild(detailsLink);
-
-        return card;
-    };
-
-    // Loop through each stock and create a card for it
-    stockData.forEach((stock) => {
+function renderStockList() {
+    const stockGrid = document.getElementById('stock-grid');
+    stockData.forEach(stock => {
         const stockCard = createStockCard(stock);
         stockGrid.appendChild(stockCard);
     });
-});
+}
+
+// Initialize stock list
+renderStockList();
