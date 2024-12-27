@@ -39,21 +39,25 @@ ul {
     padding: 1rem 0;
     position: sticky;
     top: 0;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center;
     z-index: 1000;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .header .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Ensure content stays in the center */
     align-items: center;
+    width: 100%;
     max-width: 1200px;
-    margin: 0 auto;
 }
 
 .header .logo img {
     width: 50px;
     height: 50px;
+    margin-right: 20px; /* Add spacing between logo and nav */
 }
 
 .header nav ul {
@@ -73,8 +77,7 @@ ul {
     transition: background 0.3s;
 }
 
-.header nav ul li a:hover,
-.header nav ul li a.active {
+.header nav ul li a:hover {
     background-color: var(--secondary-color);
     border-radius: 5px;
 }
@@ -127,6 +130,7 @@ ul {
     justify-content: center;
 }
 
+/* Stock Card Container */
 .stock-card {
     background-color: var(--dark-gray);
     color: var(--text-light);
@@ -135,9 +139,15 @@ ul {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.6);
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures content is evenly spaced */
+    height: auto; /* Let the card grow based on content height */
+    max-height: 500px; /* Set a maximum height to avoid excessive space */
 }
 
+/* Hover effect for the stock card */
 .stock-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.8);
@@ -173,6 +183,7 @@ ul {
     margin-bottom: 1rem;
 }
 
+/* Button */
 .btn-primary {
     display: inline-block;
     background-color: var(--secondary-color);
@@ -180,9 +191,11 @@ ul {
     padding: 10px 20px;
     font-weight: bold;
     border-radius: 5px;
-    transition: background 0.3s;
+    transition: background 0.3s ease;
+    margin-top: 1rem; /* Reduced margin for a closer button */
 }
 
+/* Hover effect for the button */
 .btn-primary:hover {
     background-color: var(--positive-green);
 }

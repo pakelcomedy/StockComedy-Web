@@ -10,21 +10,21 @@
     <!-- Header Section -->
     <header class="header">
         <div class="container">
-            <div class="logo">
-                <img src="assets/images/logo.png" alt="Logo">
-            </div>
-            <nav>
+            <nav class="navigation">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="stock-list.html" class="active">Stocks</a></li>
-                    <li><a href="leaderboard.html">Leaderboard</a></li>
-                    <li><a href="#">Explore</a>
+                    <li><a href="../index.html" class="nav-home-link">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li>
+                        <a href="#">Explore</a>
                         <ul class="dropdown">
-                            <li><a href="crypto.html">Cryptocurrency</a></li>
-                            <li><a href="commodities.html">Commodities</a></li>
+                            <li><a href="stock-list.html">Stocks</a></li>
+                            <li><a href="crypto-list.html">Cryptos</a></li>
+                            <li><a href="ipo-list.html">IPOs</a></li>
+                            <li><a href="news.html">News</a></li>
                         </ul>
                     </li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#leaderboard">Leaderboard</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -36,33 +36,8 @@
             <h1 class="section-title">Stock Market</h1>
             <p class="section-subtitle">Browse and analyze the latest stock market data.</p>
 
-            <div class="market-grid">
-                <!-- Example Stock Card -->
-                <div class="stock-card">
-                    <h3 class="stock-name">Apple Inc. (AAPL)</h3>
-                    <p class="stock-price">$178.56</p>
-                    <p class="stock-change positive">+1.35%</p>
-                    <p class="stock-volume">Volume: 34.2M</p>
-                    <a href="details/aapl.html" class="btn-primary">View Details</a>
-                </div>
-
-                <div class="stock-card">
-                    <h3 class="stock-name">Tesla Inc. (TSLA)</h3>
-                    <p class="stock-price">$233.42</p>
-                    <p class="stock-change negative">-2.45%</p>
-                    <p class="stock-volume">Volume: 28.1M</p>
-                    <a href="details/tsla.html" class="btn-primary">View Details</a>
-                </div>
-
-                <div class="stock-card">
-                    <h3 class="stock-name">Amazon.com Inc. (AMZN)</h3>
-                    <p class="stock-price">$122.78</p>
-                    <p class="stock-change positive">+0.89%</p>
-                    <p class="stock-volume">Volume: 42.7M</p>
-                    <a href="details/amzn.html" class="btn-primary">View Details</a>
-                </div>
-
-                <!-- Add more stock cards as needed -->
+            <div class="market-grid" id="stock-grid">
+                <!-- Stock cards will be dynamically generated here -->
             </div>
         </div>
     </section>
@@ -70,7 +45,6 @@
     <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-info">
-            <img src="assets/images/logo.png" alt="Logo">
             <p>&copy; 2024 StockComedy. All rights reserved.</p>
         </div>
         <div class="footer-links">
@@ -83,5 +57,7 @@
             <a href="#"><i class="fab fa-linkedin"></i></a>
         </div>
     </footer>
+
+    <script src="../assets/js/stock.js"></script>
 </body>
 </html>
