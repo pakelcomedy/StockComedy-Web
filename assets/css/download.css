@@ -1,0 +1,197 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #141414; /* Dark background */
+    color: #f9f9f9; /* Light text */
+}
+
+/* Header */
+.header {
+    background-color: var(--primary-color, #141414); /* Blue background */
+    color: var(--text-light, #ffffff); /* White text */
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center content vertically */
+    z-index: 1000;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
+
+.header .container {
+    display: flex;
+    justify-content: center; /* Ensure content stays in the center */
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; /* Limit the max width */
+}
+
+.header .logo img {
+    width: 50px; /* Logo width */
+    height: 50px; /* Logo height */
+    margin-right: 20px; /* Space between logo and nav */
+}
+
+.header nav ul {
+    display: flex;
+    gap: 20px; /* Equal spacing between items */
+    align-items: center;
+    list-style: none; /* Remove bullet points */
+}
+
+.header nav ul li {
+    position: relative;
+}
+
+.header nav ul li a {
+    color: var(--text-light, #ffffff); /* White text for links */
+    font-weight: bold;
+    padding: 8px 12px; /* Spacing for each link */
+    transition: background 0.3s; /* Smooth background transition on hover */
+    text-decoration: none; /* Remove underline */
+}
+
+.header nav ul li a:hover {
+    background-color: var(--secondary-color, #00BFFF); /* Green background on hover */
+    border-radius: 5px; /* Rounded corners on hover */
+}
+
+.header nav ul li .dropdown {
+    position: absolute;
+    top: 100%; /* Position dropdown below the parent item */
+    left: 0;
+    background-color: var(--dark-gray, #2a2a2a); /* Dark background for dropdown */
+    padding: 10px 0;
+    display: none; /* Hide dropdown by default */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5); /* Dropdown shadow */
+    z-index: 10;
+}
+
+.header nav ul li:hover .dropdown {
+    display: block; /* Show dropdown on hover */
+}
+
+.header nav ul li .dropdown li a {
+    display: block;
+    padding: 10px 20px; /* Spacing for each dropdown item */
+    color: var(--text-light, #ffffff); /* White text */
+    white-space: nowrap; /* Prevent text wrapping */
+    text-decoration: none; /* Remove underline */
+}
+
+.header nav ul li .dropdown li a:hover {
+    background-color: var(--secondary-color, #00BFFF); /* Green background on hover for dropdown */
+}
+
+/* Download Section */
+.download {
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.download .section-title {
+    font-size: 2.5rem;
+    color: #f9f9f9;
+    margin-bottom: 1rem;
+}
+
+.download .section-subtitle {
+    font-size: 1.2rem;
+    color: #999;
+    margin-bottom: 2rem;
+}
+
+/* App Details */
+.app-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.app-details .app-image {
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.app-details .app-info {
+    max-width: 400px;
+    text-align: left;
+}
+
+.app-details .app-info h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.app-details .app-info p {
+    margin-bottom: 1.5rem;
+}
+
+.app-details .btn-primary {
+    display: inline-block;
+    background-color: var(--primary-button-color, #00bfff);
+    color: #141414;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.app-details .btn-primary:hover {
+    background-color: var(--primary-button-hover-color, #4caf50);
+}
+
+/* Installation Instructions */
+.instructions {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.instructions h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary-highlight-color, #00bfff);
+}
+
+.instructions ol {
+    list-style: decimal inside;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.instructions ol li {
+    margin-bottom: 0.5rem;
+}
+
+.instructions .warning {
+    color: #f44336;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+/* Footer */
+.footer {
+    background-color: #1e1e1e;
+    color: #f9f9f9;
+    padding: 1.5rem 1rem;
+    text-align: center;
+}
