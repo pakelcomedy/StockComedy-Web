@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockComedy - Gamify Your Trading Skills</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <nav class="navigation">
+                <ul>
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="pages/about.html">About</a></li>
+                    <li>
+                        <a href="#">Explore</a>
+                        <ul class="dropdown">
+                            <li><a href="pages/stock-list.html">Stocks</a></li>
+                            <li><a href="pages/crypto-list.html">Cryptos</a></li>
+                            <li><a href="pages/ipo-list.html">IPOs</a></li>
+                            <li><a href="pages/news.html">News</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#leaderboard">Leaderboard</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero";>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Welcome to StockComedy</h1>
+                <p>Challenge your trading skills in a fun and competitive way.</p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <h3>50K+</h3>
+                        <p>Active Players</p>
+                    </div>
+                    <div class="stat">
+                        <h3>120+</h3>
+                        <p>Tradable Assets</p>
+                    </div>
+                    <div class="stat">
+                        <h3>100K+</h3>
+                        <p>Trades Processed</p>
+                    </div>
+                </div>
+                <a href="pages/stock-list.html" class="btn-primary">Start Trading</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Game Features</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fa-solid fa-trophy"></i>
+                    <h3>Track Your Progress</h3>
+                    <p>Monitor your trades and see your balance grow over time.</p>
+                </div>
+                <div class="feature">
+                    <i class="fa-solid fa-coins"></i>
+                    <h3>Trade Virtual Assets</h3>
+                    <p>Simulate real-time trades in stocks, cryptocurrencies, and IPOs.</p>
+                </div>
+                <div class="feature">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>Real-Time Market Data</h3>
+                    <p>Access up-to-date market prices for all tradable assets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Market Updates Section -->
+    <section id="live-market" class="live-market">
+        <div class="container">
+            <h2 class="section-title">Live Market Updates</h2>
+            <p class="section-subtitle">Track your favorite assets in real-time and make winning trades.</p>
+            <div class="market-grid">
+                <!-- Top Stocks Table -->
+                <div class="market-table">
+                    <h3 class="table-title">Top Stocks</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Company</th>
+                                <th>Price</th>
+                                <th>Change</th>
+                                <th>Volume</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Apple</td>
+                                <td>$150.25</td>
+                                <td class="positive">+2.34%</td>
+                                <td>1.2M</td>
+                            </tr>
+                            <tr>
+                                <td>Amazon</td>
+                                <td>$3,200.45</td>
+                                <td class="negative">-1.15%</td>
+                                <td>800K</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Top Cryptos Table -->
+                <div class="market-table">
+                    <h3 class="table-title">Top Cryptos</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Asset</th>
+                                <th>Price</th>
+                                <th>Change</th>
+                                <th>Market Cap</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bitcoin</td>
+                                <td>$48,000</td>
+                                <td class="positive">+3.12%</td>
+                                <td>$900B</td>
+                            </tr>
+                            <tr>
+                                <td>Ethereum</td>
+                                <td>$3,200</td>
+                                <td class="negative">-0.25%</td>
+                                <td>$400B</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section id="leaderboard" class="leaderboard">
+        <div class="container">
+            <h2 class="section-title">Leaderboard</h2>
+            <p class="section-subtitle">See the top players with the highest balance.</p>
+            <div class="leaderboard-grid">
+                <div class="leaderboard-item">
+                    <h3>1. Alex Johnson</h3>
+                    <p>Balance: $1,000,000</p>
+                </div>
+                <div class="leaderboard-item">
+                    <h3>2. Sarah Lee</h3>
+                    <p>Balance: $950,000</p>
+                </div>
+                <div class="leaderboard-item">
+                    <h3>3. Chris Miller</h3>
+                    <p>Balance: $920,000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-info">
+                <img src="assets/images/logo.svg" alt="StockComedy Logo">
+                <p>&copy; 2024 StockComedy. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <div class="social-media">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
