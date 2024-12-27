@@ -330,7 +330,7 @@ tbody td.negative {
 }
 
 /* Responsive Design */
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1500px) {
     .leaderboard {
         display: none; /* Hides the leaderboard on smaller screens */
     }
