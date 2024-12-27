@@ -17,6 +17,7 @@ StockComedy/
 │   │   ├── crypto.css           # CSS specific to crypto-related styling
 │   │   ├── ipo.css              # CSS specific to IPO-related styling
 │   │   ├── news.css             # CSS specific to news-related styling
+│   │   ├── about.css            # CSS specific to App styling
 │
 │   ├── js/                      # Folder for JavaScript files
 │   │   ├── script.js            # Main JS file for global interactions (e.g., navigation)
