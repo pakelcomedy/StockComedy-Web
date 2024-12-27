@@ -1,5 +1,3 @@
-// script.js
-
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -64,4 +62,27 @@ function updateMarketData() {
 }
 
 // Call updateMarketData when the page loads
-document.addEventListener('DOMContentLoaded', updateMarketData);
+document.addEventListener('DOMContentLoaded', () => {
+    updateMarketData();
+
+    // Animasi angka pada Hero Section
+    const counters = document.querySelectorAll('.count');
+    const speed = 200; // Adjust speed of the animation
+
+    counters.forEach(counter => {
+        const updateCount = () => {
+            const target = +counter.getAttribute("data-target");
+            const count = +counter.innerText;
+            const increment = target / speed;
+
+            if (count < target) {
+                counter.innerText = Math.ceil(count + increment);
+                setTimeout(updateCount, 10);
+            } else {
+                counter.innerText = target; // Ensure final value is exact
+            }
+        };
+
+        updateCount();
+    });
+});

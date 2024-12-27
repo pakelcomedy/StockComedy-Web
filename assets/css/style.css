@@ -137,6 +137,13 @@ ul {
     font-size: 1rem;
 }
 
+.count {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
 .btn-primary {
     background-color: var(--secondary-color);
     color: var(--primary-color);
