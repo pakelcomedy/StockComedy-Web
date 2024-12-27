@@ -33,7 +33,7 @@ ul {
     --negative-red: #f44336; /* Negative change */
 }
 
-/* Header Section */
+/* Header */
 .header {
     background-color: var(--primary-color);
     color: var(--text-light);
@@ -209,15 +209,6 @@ ul {
 
     .key-stats-table {
         margin-top: 1rem;
-    }
-
-    .header nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .header nav ul li {
-        margin-bottom: 10px;
     }
 
     .stock-detail .section-title {
