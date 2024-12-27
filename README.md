@@ -25,6 +25,7 @@ StockComedy/
 │   │   ├── crypto.js            # JS for crypto interactions (price updates, charts)
 │   │   ├── ipo.js               # JS for IPO-related interactions (new IPO listings)
 │   │   ├── news.js              # JS for news page interactions (news updates, fetching)
+│   │   ├── about.js              # JS for news page interactions (news updates, fetching)
 │
 │   ├── images/                  # Folder for image files (logos, icons, etc.)
 │   │   ├── logo.png             # Main logo image
