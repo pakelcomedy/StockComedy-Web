@@ -6,6 +6,9 @@ StockComedy/
 ├── pages/                       # Folder for individual HTML pages
 │   ├── about.html               # About page
 │   ├── stock-list.html          # Stock list page
+│   ├── stock-detail.html          # Stock list page
+│   ├── download.html                # News page
+│   ├── leaderboard.html                # News page
 │   ├── crypto-list.html         # Crypto list page
 │   ├── ipo-list.html            # IPO list page
 │   ├── news.html                # News page
@@ -14,16 +17,22 @@ StockComedy/
 │   ├── css/                     # Folder for CSS files
 │   │   ├── style.css            # Main CSS file for global styles (layout, typography, etc.)
 │   │   ├── stock.css            # CSS specific to stock-related styling
+│   │   ├── stock-detail.css            # CSS specific to stock-related styling
 │   │   ├── crypto.css           # CSS specific to crypto-related styling
 │   │   ├── ipo.css              # CSS specific to IPO-related styling
+│   │   ├── leaderboard.css            # CSS specific to stock-related styling
+│   │   ├── download.css            # CSS specific to stock-related styling
 │   │   ├── news.css             # CSS specific to news-related styling
 │   │   ├── about.css            # CSS specific to App styling
 │
 │   ├── js/                      # Folder for JavaScript files
 │   │   ├── script.js            # Main JS file for global interactions (e.g., navigation)
 │   │   ├── stock.js             # JS for stock interactions (price updates, charts)
+│   │   ├── stock-detail.js             # JS for stock interactions (price updates, charts)
 │   │   ├── crypto.js            # JS for crypto interactions (price updates, charts)
+│   │   ├── leaderboard.js             # JS for stock interactions (price updates, charts)
 │   │   ├── ipo.js               # JS for IPO-related interactions (new IPO listings)
+│   │   ├── download.js             # JS for stock interactions (price updates, charts)
 │   │   ├── news.js              # JS for news page interactions (news updates, fetching)
 │   │   ├── about.js              # JS for news page interactions (news updates, fetching)
 │
