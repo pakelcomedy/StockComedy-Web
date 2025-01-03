@@ -1,33 +1,22 @@
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDUKi9EMIGputcL32kdGs7W-bhaiGRYKYI",
+    authDomain: "stockcomedy-666.firebaseapp.com",
+    databaseURL: "https://stockcomedy-666-default-rtdb.firebaseio.com",
+    projectId: "stockcomedy-666",
+    storageBucket: "stockcomedy-666.firebasestorage.app",
+    messagingSenderId: "670829636816",
+    appId: "1:670829636816:web:bca160907d8e10ec8d02d5",
+    measurementId: "G-T8XFP8TFGV"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
 document.addEventListener('DOMContentLoaded', function() {
     const newsGrid = document.getElementById('news-grid');
-
-    // Mock data for news articles (replace with real API or data source)
-    const newsData = [
-        {
-            title: "Stock Market Hits New High Amid Economic Recovery",
-            summary: "The stock market reached a new high this week, reflecting the growing optimism around the economic recovery post-pandemic.",
-            date: "2024-12-25",
-            sectors: ["Technology", "Finance"],
-        },
-        {
-            title: "Cryptocurrency Market Faces Regulatory Pressure",
-            summary: "Regulatory concerns over cryptocurrencies have led to volatility in the market, particularly affecting digital currencies like Bitcoin and Ethereum.",
-            date: "2024-12-24",
-            sectors: ["Cryptocurrency", "Finance"],
-        },
-        {
-            title: "Tech Giant Announces Record-Breaking Earnings",
-            summary: "A major tech company has announced record earnings, boosting investor confidence and highlighting the strength of the technology sector.",
-            date: "2024-12-23",
-            sectors: ["Technology", "Consumer Goods"],
-        },
-        {
-            title: "Energy Prices Surge Due to Global Supply Chain Issues",
-            summary: "Global supply chain disruptions are causing a spike in energy prices, with potential long-term effects on industries dependent on energy resources.",
-            date: "2024-12-22",
-            sectors: ["Energy", "Manufacturing"],
-        }
-    ];
 
     // Function to create and display each news card
     function createNewsCard(news) {
@@ -40,15 +29,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const summary = document.createElement('p');
         summary.classList.add('news-summary');
-        summary.textContent = news.summary;
+        summary.textContent = news.content;
 
         const date = document.createElement('p');
         date.classList.add('news-date');
-        date.textContent = `Published on: ${news.date}`;
+        date.textContent = `Published on: ${news.timestamp}`;
 
         const sectors = document.createElement('p');
         sectors.classList.add('news-sectors');
-        sectors.textContent = `Impact Sectors: ${news.sectors.join(', ')}`;
+        sectors.textContent = `Impact Sectors: ${news.impacting_sectors.join(', ')}`;
 
         // Append the elements to the card
         card.appendChild(title);
@@ -60,7 +49,24 @@ document.addEventListener('DOMContentLoaded', function() {
         newsGrid.appendChild(card);
     }
 
-    // Generate all the news cards
-    newsData.forEach(news => createNewsCard(news));
+    // Fetch news data from Firestore
+    async function fetchNews() {
+        try {
+            const newsCollection = collection(db, "news");
+            const newsSnapshot = await getDocs(newsCollection);
 
+            newsSnapshot.forEach(doc => {
+                const news = doc.data();
+                // Format timestamp to a readable date
+                const formattedDate = new Date(news.timestamp).toLocaleString();
+                news.timestamp = formattedDate;
+                createNewsCard(news);
+            });
+        } catch (error) {
+            console.error("Error getting news: ", error);
+        }
+    }
+
+    // Call the function to fetch news
+    fetchNews();
 });
