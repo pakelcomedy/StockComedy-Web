@@ -1,31 +1,40 @@
 ```
 StockComedy/
 │
-├── index.html                  # Main landing page
+├── index.html                   # Main landing page
 │
 ├── pages/                       # Folder for individual HTML pages
 │   ├── about.html               # About page
 │   ├── stock-list.html          # Stock list page
+│   ├── stock-detail.html        # Stock detail page
+│   ├── download.html            # Download page
+│   ├── leaderboard.html         # Leaderboard page
 │   ├── crypto-list.html         # Crypto list page
 │   ├── ipo-list.html            # IPO list page
 │   ├── news.html                # News page
 │
 ├── assets/                      # Folder for static assets (CSS, JS, images)
 │   ├── css/                     # Folder for CSS files
-│   │   ├── style.css            # Main CSS file for global styles (layout, typography, etc.)
-│   │   ├── stock.css            # CSS specific to stock-related styling
-│   │   ├── crypto.css           # CSS specific to crypto-related styling
-│   │   ├── ipo.css              # CSS specific to IPO-related styling
-│   │   ├── news.css             # CSS specific to news-related styling
-│   │   ├── about.css            # CSS specific to App styling
+│   │   ├── global.css           # Global styles (layout, typography, etc.)
+│   │   ├── stock.css            # Stock-specific styles
+│   │   ├── stock-detail.css     # Stock detail-specific styles
+│   │   ├── crypto.css           # Crypto-specific styles
+│   │   ├── ipo.css              # IPO-specific styles
+│   │   ├── leaderboard.css      # Leaderboard-specific styles
+│   │   ├── download.css         # Download page styles
+│   │   ├── news.css             # News-specific styles
+│   │   ├── about.css            # About page styles
 │
 │   ├── js/                      # Folder for JavaScript files
-│   │   ├── script.js            # Main JS file for global interactions (e.g., navigation)
-│   │   ├── stock.js             # JS for stock interactions (price updates, charts)
-│   │   ├── crypto.js            # JS for crypto interactions (price updates, charts)
-│   │   ├── ipo.js               # JS for IPO-related interactions (new IPO listings)
-│   │   ├── news.js              # JS for news page interactions (news updates, fetching)
-│   │   ├── about.js              # JS for news page interactions (news updates, fetching)
+│   │   ├── global.js            # Global interactions (e.g., navigation)
+│   │   ├── stock.js             # Stock interactions (price updates, charts)
+│   │   ├── stock-detail.js      # Stock detail interactions
+│   │   ├── crypto.js            # Crypto interactions
+│   │   ├── ipo.js               # IPO-related interactions
+│   │   ├── leaderboard.js       # Leaderboard interactions
+│   │   ├── download.js          # Download page interactions
+│   │   ├── news.js              # News page interactions
+│   │   ├── about.js             # About page interactions
 │
 │   ├── images/                  # Folder for image files (logos, icons, etc.)
 │   │   ├── logo.png             # Main logo image
@@ -33,12 +42,12 @@ StockComedy/
 │   │   ├── crypto-icon.png      # Icon for crypto section
 │   │   ├── ipo-icon.png         # Icon for IPO section
 │   │   ├── news-icon.png        # Icon for news section
-│   │   ├── footer-bg.jpg        # Background image for the footer
-│   │   ├── hero-banner.jpg      # Hero banner image for the landing page
+│   │   ├── footer-bg.jpg        # Background image for footer
+│   │   ├── hero-banner.jpg      # Hero banner image for landing page
 │
 ├── firebase/                    # Folder for Firebase configuration and services
-│   ├── firebase-config.js       # Firebase configuration settings
-│   ├── firebase-service.js      # Firebase interaction logic (CRUD operations)
+│   ├── config.js                # Firebase configuration settings
+│   ├── service.js               # Firebase interaction logic (CRUD operations)
 │
 ├── backend/                     # Folder for Node.js backend
 │   ├── server.js                # Main server file using Express (handles API requests)
@@ -53,11 +62,11 @@ StockComedy/
 │   │   ├── ipoRoutes.js         # Routes for IPO-related requests
 │   │   ├── newsRoutes.js        # Routes for news-related requests
 │   ├── services/                # Folder for services handling Firebase data operations
-│   │   ├── firebaseService.js   # Firebase CRUD logic used in the backend
-│   ├── utils/                   # Folder for utility functions used across the backend
-│   │   ├── priceUpdater.js      # Logic for updating stock and crypto prices, and volatility management
+│   │   ├── firebaseService.js   # Firebase CRUD logic used in backend
+│   ├── utils/                   # Folder for utility functions
+│   │   ├── priceUpdater.js      # Logic for updating stock and crypto prices
 │
 ├── .gitignore                   # Git ignore file (to exclude node_modules, etc.)
-├── package.json                 # Contains Node.js dependencies and project configuration
-└── README.md                    # Project documentation (guidelines, setup, etc.)
+├── package.json                 # Node.js dependencies and project configuration
+└── README.md                    # Project documentation (setup, usage, etc.)
 ```
