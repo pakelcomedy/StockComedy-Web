@@ -177,6 +177,14 @@ ul {
     margin-bottom: 1rem;
 }
 
+/* IPO Card Sector */
+.stock-card .stock-sector {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-muted);
+}
+
+
 /* Footer */
 .footer {
     background-color: var(--dark-gray);
