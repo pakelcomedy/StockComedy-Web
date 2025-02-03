@@ -1,332 +1,328 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stock Detail</title>
-    <link rel="stylesheet" href="../assets/css/stock-detail.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../assets/css/stock-detail.css" />
+  </head>
+  <body>
     <!-- Header Section -->
     <header class="header">
-        <div class="container">
-            <nav class="navigation">
-                <ul>
-                    <li><a href="../index.html" class="nav-home-link">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li>
-                        <a href="#">Explore</a>
-                        <ul class="dropdown">
-                            <li><a href="stock-list.html">Stocks</a></li>
-                            <li><a href="crypto-list.html">Cryptos</a></li>
-                            <li><a href="ipo-list.html">IPOs</a></li>
-                            <li><a href="news.html">News</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="leaderboard.html">Leaderboard</a></li>
-                </ul>
-            </nav>
-        </div>
+      <div class="container">
+        <nav class="navigation">
+          <ul>
+            <li><a href="../index.html" class="nav-home-link">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li>
+              <a href="#">Explore</a>
+              <ul class="dropdown">
+                <li><a href="stock-list.html">Stocks</a></li>
+                <li><a href="crypto-list.html">Cryptos</a></li>
+                <li><a href="ipo-list.html">IPOs</a></li>
+                <li><a href="news.html">News</a></li>
+              </ul>
+            </li>
+            <li><a href="leaderboard.html">Leaderboard</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-<!-- Stock Detail Section -->
-<section class="stock-detail">
-    <div class="container">
-        <h2 class="section-title">Stock Detail</h2>
-        <p class="section-subtitle">Complete financial metrics and data for a thorough analysis.</p>
-        
-        <div class="stock-tables">
-            <!-- Profitability Ratios Table -->
-            <table class="key-stats-table">
-                <thead>
-                    <tr>
-                        <th>Metric</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Gross Profit Margin (Quarter)</td>
-                        <td>29.26%</td>
-                    </tr>
-                    <tr>
-                        <td>Operating Profit Margin (Quarter)</td>
-                        <td>35.55%</td>
-                    </tr>
-                    <tr>
-                        <td>Net Profit Margin (Quarter)</td>
-                        <td>32.33%</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- Growth Indicators Table -->
-            <table class="key-stats-table">
-                <thead>
-                    <tr>
-                        <th>Metric</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Revenue (Quarter YoY Growth)</td>
-                        <td>-10.81%</td>
-                    </tr>
-                    <tr>
-                        <td>Gross Profit (Quarter YoY Growth)</td>
-                        <td>-24.24%</td>
-                    </tr>
-                    <tr>
-                        <td>Net Income (Quarter YoY Growth)</td>
-                        <td>32.43%</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- Dividend Metrics Table -->
-            <table class="key-stats-table">
-                <thead>
-                    <tr>
-                        <th>Metric</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Dividend</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>Dividend (TTM)</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>Payout Ratio</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>Dividend Yield</td>
-                        <td>-</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- Market Capitalization and Enterprise Value Table -->
-            <table class="key-stats-table">
-                <thead>
-                    <tr>
-                        <th>Metric</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Market Cap</td>
-                        <td>60,932 B</td>
-                    </tr>
-                    <tr>
-                        <td>Enterprise Value</td>
-                        <td>63,359 B</td>
-                    </tr>
-                    <tr>
-                        <td>Current Shares Outstanding</td>
-                        <td>7.79 B</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- Balance Sheet Table -->
-            <table class="key-stats-table">
-                <thead>
-                    <tr>
-                        <th>Metric</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Total Assets (Quarter)</td>
-                        <td>89,069 B</td>
-                    </tr>
-                    <tr>
-                        <td>Total Liabilities (Quarter)</td>
-                        <td>44,462 B</td>
-                    </tr>
-                    <tr>
-                        <td>Working Capital (Quarter)</td>
-                        <td>5,838 B</td>
-                    </tr>
-                    <tr>
-                        <td>Total Equity</td>
-                        <td>39,068 B</td>
-                    </tr>
-                    <tr>
-                        <td>Long-term Debt (Quarter)</td>
-                        <td>2,051 B</td>
-                    </tr>
-                    <tr>
-                        <td>Short-term Debt (Quarter)</td>
-                        <td>12,542 B</td>
-                    </tr>
-                    <tr>
-                        <td>Total Debt (Quarter)</td>
-                        <td>14,593 B</td>
-                    </tr>
-                    <tr>
-                        <td>Net Debt (Quarter)</td>
-                        <td>(3,113 B)</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- Solvency Table -->
-            <table class="key-stats-table">
-                <thead>
-                    <tr>
-                        <th>Metric</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Current Ratio (Quarter)</td>
-                        <td>1.23</td>
-                    </tr>
-                    <tr>
-                        <td>Quick Ratio (Quarter)</td>
-                        <td>1.18</td>
-                    </tr>
-                    <tr>
-                        <td>Debt to Equity Ratio (Quarter)</td>
-                        <td>0.37</td>
-                    </tr>
-                    <tr>
-                        <td>LT Debt/Equity (Quarter)</td>
-                        <td>0.05</td>
-                    </tr>
-                    <tr>
-                        <td>Total Liabilities/Equity (Quarter)</td>
-                        <td>1.14</td>
-                    </tr>
-                    <tr>
-                        <td>Total Debt/Total Assets (Quarter)</td>
-                        <td>0.16</td>
-                    </tr>
-                    <tr>
-                        <td>Financial Leverage (Quarter)</td>
-                        <td>2.28</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- Management Effectiveness Table -->
-            <table class="key-stats-table">
-                <thead>
-                    <tr>
-                        <th>Metric</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Return on Assets (TTM)</td>
-                        <td>0.00%</td>
-                    </tr>
-                    <tr>
-                        <td>Return on Equity (TTM)</td>
-                        <td>0.00%</td>
-                    </tr>
-                    <tr>
-                        <td>Return on Capital Employed (TTM)</td>
-                        <td>0.00%</td>
-                    </tr>
-                    <tr>
-                        <td>Return on Invested Capital (TTM)</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>Days Sales Outstanding (Quarter)</td>
-                        <td>8.74</td>
-                    </tr>
-                    <tr>
-                        <td>Days Inventory (Quarter)</td>
-                        <td>2.16</td>
-                    </tr>
-                    <tr>
-                        <td>Days Payables Outstanding (Quarter)</td>
-                        <td>10.44</td>
-                    </tr>
-                    <tr>
-                        <td>Cash Conversion Cycle (Quarter)</td>
-                        <td>0.46</td>
-                    </tr>
-                    <tr>
-                        <td>Receivables Turnover (Quarter)</td>
-                        <td>10.41</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- Price Performance Table -->
-            <table class="key-stats-table">
-                <thead>
-                    <tr>
-                        <th>Metric</th>
-                        <th>Value</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1 Week Price Returns</td>
-                        <td>-4.95%</td>
-                    </tr>
-                    <tr>
-                        <td>1 Year Price Returns</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>3 Year Price Returns</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>5 Year Price Returns</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>10 Year Price Returns</td>
-                        <td>-</td>
-                    </tr>
-                    <tr>
-                        <td>52 Week High</td>
-                        <td>11,375.00</td>
-                    </tr>
-                    <tr>
-                        <td>52 Week Low</td>
-                        <td>6,650.00</td>
-                    </tr>
-                </tbody>
-            </table>
+    <!-- Stock Detail Section -->
+    <section class="stock-detail">
+      <div class="container">
+        <!-- Bagian untuk menampilkan informasi dasar saham -->
+        <div id="stockHeader">
+          <!-- Data dasar akan diisi oleh JS -->
         </div>
-    </div>
-</section>
+
+        <h2 class="section-title">Stock Detail</h2>
+        <p class="section-subtitle">
+          Complete financial metrics and data for a thorough analysis.
+        </p>
+
+        <div class="stock-tables">
+          <!-- Profitability Ratios Table -->
+          <table class="key-stats-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Gross Profit Margin (Quarter)</td>
+                <td id="grossProfitMarginQuarter">-</td>
+              </tr>
+              <tr>
+                <td>Operating Profit Margin (Quarter)</td>
+                <td id="operatingProfitMarginQuarter">-</td>
+              </tr>
+              <tr>
+                <td>Net Profit Margin (Quarter)</td>
+                <td id="netProfitMarginQuarter">-</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Growth Indicators Table -->
+          <table class="key-stats-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Revenue (Quarter YoY Growth)</td>
+                <td id="revenueQuarterYoYGrowth">-</td>
+              </tr>
+              <tr>
+                <td>Gross Profit (Quarter YoY Growth)</td>
+                <td id="grossProfitQuarterYoYGrowth">-</td>
+              </tr>
+              <tr>
+                <td>Net Income (Quarter YoY Growth)</td>
+                <td id="netIncomeQuarterYoYGrowth">-</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Dividend Metrics Table -->
+          <table class="key-stats-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Dividend</td>
+                <td id="dividend">-</td>
+              </tr>
+              <tr>
+                <td>Dividend (TTM)</td>
+                <td id="dividendTTM">-</td>
+              </tr>
+              <tr>
+                <td>Payout Ratio</td>
+                <td id="payoutRatio">-</td>
+              </tr>
+              <tr>
+                <td>Dividend Yield</td>
+                <td id="dividendYield">-</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Market Capitalization and Enterprise Value Table -->
+          <table class="key-stats-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Market Cap</td>
+                <td id="marketCap">-</td>
+              </tr>
+              <tr>
+                <td>Enterprise Value</td>
+                <td id="enterpriseValue">-</td>
+              </tr>
+              <tr>
+                <td>Current Shares Outstanding</td>
+                <td id="currentSharesOutstanding">-</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Balance Sheet Table -->
+          <table class="key-stats-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Total Assets (Quarter)</td>
+                <td id="totalAssetsQuarter">-</td>
+              </tr>
+              <tr>
+                <td>Total Liabilities (Quarter)</td>
+                <td id="totalLiabilitiesQuarter">-</td>
+              </tr>
+              <tr>
+                <td>Working Capital (Quarter)</td>
+                <td id="workingCapitalQuarter">-</td>
+              </tr>
+              <tr>
+                <td>Total Equity</td>
+                <td id="totalEquity">-</td>
+              </tr>
+              <tr>
+                <td>Long-term Debt (Quarter)</td>
+                <td id="longTermDebtQuarter">-</td>
+              </tr>
+              <tr>
+                <td>Short-term Debt (Quarter)</td>
+                <td id="shortTermDebtQuarter">-</td>
+              </tr>
+              <tr>
+                <td>Total Debt (Quarter)</td>
+                <td id="totalDebtQuarter">-</td>
+              </tr>
+              <tr>
+                <td>Net Debt (Quarter)</td>
+                <td id="netDebtQuarter">-</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Solvency Table -->
+          <table class="key-stats-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Current Ratio (Quarter)</td>
+                <td id="currentRatioQuarter">-</td>
+              </tr>
+              <tr>
+                <td>Quick Ratio (Quarter)</td>
+                <td id="quickRatioQuarter">-</td>
+              </tr>
+              <tr>
+                <td>Debt to Equity Ratio (Quarter)</td>
+                <td id="debtToEquityQuarter">-</td>
+              </tr>
+              <tr>
+                <td>LT Debt/Equity (Quarter)</td>
+                <td id="ltDebtEquityQuarter">-</td>
+              </tr>
+              <tr>
+                <td>Total Liabilities/Equity (Quarter)</td>
+                <td id="totalLiabilitiesEquityQuarter">-</td>
+              </tr>
+              <tr>
+                <td>Total Debt/Total Assets (Quarter)</td>
+                <td id="totalDebtAssetsQuarter">-</td>
+              </tr>
+              <tr>
+                <td>Financial Leverage (Quarter)</td>
+                <td id="financialLeverageQuarter">-</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Management Effectiveness Table -->
+          <table class="key-stats-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Return on Assets (TTM)</td>
+                <td id="returnOnAssetsTTM">-</td>
+              </tr>
+              <tr>
+                <td>Return on Equity (TTM)</td>
+                <td id="returnOnEquityTTM">-</td>
+              </tr>
+              <tr>
+                <td>Return on Capital Employed (TTM)</td>
+                <td id="returnOnCapitalEmployedTTM">-</td>
+              </tr>
+              <tr>
+                <td>Return on Invested Capital (TTM)</td>
+                <td id="returnOnInvestedCapitalTTM">-</td>
+              </tr>
+              <tr>
+                <td>Days Sales Outstanding (Quarter)</td>
+                <td id="daysSalesOutstandingQuarter">-</td>
+              </tr>
+              <tr>
+                <td>Days Inventory (Quarter)</td>
+                <td id="daysInventoryQuarter">-</td>
+              </tr>
+              <tr>
+                <td>Days Payables Outstanding (Quarter)</td>
+                <td id="daysPayablesOutstandingQuarter">-</td>
+              </tr>
+              <tr>
+                <td>Cash Conversion Cycle (Quarter)</td>
+                <td id="cashConversionCycleQuarter">-</td>
+              </tr>
+              <tr>
+                <td>Receivables Turnover (Quarter)</td>
+                <td id="receivablesTurnoverQuarter">-</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- Price Performance Table -->
+          <table class="key-stats-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1 Week Price Returns</td>
+                <td id="priceReturns1Week">-</td>
+              </tr>
+              <tr>
+                <td>1 Year Price Returns</td>
+                <td id="priceReturns1Year">-</td>
+              </tr>
+              <tr>
+                <td>3 Year Price Returns</td>
+                <td id="priceReturns3Year">-</td>
+              </tr>
+              <tr>
+                <td>5 Year Price Returns</td>
+                <td id="priceReturns5Year">-</td>
+              </tr>
+              <tr>
+                <td>10 Year Price Returns</td>
+                <td id="priceReturns10Year">-</td>
+              </tr>
+              <tr>
+                <td>52 Week High</td>
+                <td id="week52High">-</td>
+              </tr>
+              <tr>
+                <td>52 Week Low</td>
+                <td id="week52Low">-</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
     <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-info">
             <p>&copy; 2024 StockComedy. All rights reserved.</p>
         </div>
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
-        </div>
-        <div class="social-media">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-        </div>
     </footer>
-
-    <script src="../assets/js/stock-detail.js"></script>
 </body>
 </html>

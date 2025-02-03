@@ -1,130 +1,333 @@
-// stock-detail.js
-const stockData = {
-    AAPL: {
-        name: "Apple Inc.",
-        price: 178.56,
-        change: 1.35,
-        volume: "34.2M",
-        marketCap: "2.9T",
-        peRatio: 28.5,
-        earningsYield: 3.5,
-        eps: 6.22,
-        priceToSales: 7.5,
-        priceToBook: 30.3,
-        currentRatio: 1.3,
-        debtToEquity: 1.0,
-        returnOnEquity: 35.6,
-        dividendYield: 0.6,
-    },
-    TSLA: {
-        name: "Tesla Inc.",
-        price: 233.42,
-        change: -2.45,
-        volume: "28.1M",
-        marketCap: "745B",
-        peRatio: 42.1,
-        earningsYield: 2.4,
-        eps: 5.44,
-        priceToSales: 12.4,
-        priceToBook: 16.8,
-        currentRatio: 1.2,
-        debtToEquity: 1.2,
-        returnOnEquity: 21.3,
-        dividendYield: 0.0,
-    },
-    AMZN: {
-        name: "Amazon.com Inc.",
-        price: 122.78,
-        change: 0.89,
-        volume: "42.7M",
-        marketCap: "1.3T",
-        peRatio: 58.3,
-        earningsYield: 1.7,
-        eps: 2.10,
-        priceToSales: 3.8,
-        priceToBook: 14.9,
-        currentRatio: 1.6,
-        debtToEquity: 0.7,
-        returnOnEquity: 25.4,
-        dividendYield: 0.0,
-    }
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js";
+
+// Konfigurasi Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyDUKi9EMIGputcL32kdGs7W-bhaiGRYKYI",
+  authDomain: "stockcomedy-666.firebaseapp.com",
+  databaseURL:
+    "https://stockcomedy-666-default-rtdb.firebaseio.com",
+  projectId: "stockcomedy-666",
+  storageBucket: "stockcomedy-666.appspot.com",
+  messagingSenderId: "670829636816",
+  appId: "1:670829636816:web:bca160907d8e10ec8d02d5",
+  measurementId: "G-T8XFP8TFGV",
 };
 
-function getStockSymbolFromUrl() {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('symbol');
+// Inisialisasi Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+// Fungsi untuk mengambil parameter symbol dari URL
+function getStockSymbolFromURL() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get("symbol") || null;
 }
 
-function displayStockDetails(stock) {
-    const stockInfoDiv = document.getElementById('stock-info');
-
-    const stockName = document.createElement('h1');
-    stockName.textContent = stock.name;
-    stockInfoDiv.appendChild(stockName);
-
-    const stockPrice = document.createElement('p');
-    stockPrice.textContent = `Price: $${stock.price}`;
-    stockInfoDiv.appendChild(stockPrice);
-
-    const stockChange = document.createElement('p');
-    stockChange.textContent = `Change: ${stock.change}%`;
-    stockInfoDiv.appendChild(stockChange);
-
-    const stockVolume = document.createElement('p');
-    stockVolume.textContent = `Volume: ${stock.volume}`;
-    stockInfoDiv.appendChild(stockVolume);
-
-    const stockMarketCap = document.createElement('p');
-    stockMarketCap.textContent = `Market Cap: ${stock.marketCap}`;
-    stockInfoDiv.appendChild(stockMarketCap);
-
-    const stockPE = document.createElement('p');
-    stockPE.textContent = `PE Ratio: ${stock.peRatio}`;
-    stockInfoDiv.appendChild(stockPE);
-
-    const stockEarningsYield = document.createElement('p');
-    stockEarningsYield.textContent = `Earnings Yield: ${stock.earningsYield}%`;
-    stockInfoDiv.appendChild(stockEarningsYield);
-
-    const stockEPS = document.createElement('p');
-    stockEPS.textContent = `EPS: $${stock.eps}`;
-    stockInfoDiv.appendChild(stockEPS);
-
-    const stockPToS = document.createElement('p');
-    stockPToS.textContent = `Price to Sales: ${stock.priceToSales}`;
-    stockInfoDiv.appendChild(stockPToS);
-
-    const stockPToB = document.createElement('p');
-    stockPToB.textContent = `Price to Book: ${stock.priceToBook}`;
-    stockInfoDiv.appendChild(stockPToB);
-
-    const stockCurrentRatio = document.createElement('p');
-    stockCurrentRatio.textContent = `Current Ratio: ${stock.currentRatio}`;
-    stockInfoDiv.appendChild(stockCurrentRatio);
-
-    const stockDebtToEquity = document.createElement('p');
-    stockDebtToEquity.textContent = `Debt to Equity Ratio: ${stock.debtToEquity}`;
-    stockInfoDiv.appendChild(stockDebtToEquity);
-
-    const stockROE = document.createElement('p');
-    stockROE.textContent = `Return on Equity: ${stock.returnOnEquity}%`;
-    stockInfoDiv.appendChild(stockROE);
-
-    const stockDividendYield = document.createElement('p');
-    stockDividendYield.textContent = `Dividend Yield: ${stock.dividendYield}%`;
-    stockInfoDiv.appendChild(stockDividendYield);
+// Fungsi untuk mengambil data saham dari Firebase
+async function fetchStockDetail(stockSymbol) {
+  if (!stockSymbol) {
+    console.error("Symbol tidak ditemukan di URL");
+    return null;
+  }
+  const stockRef = ref(db, `stocks/${stockSymbol}`);
+  try {
+    const snapshot = await get(stockRef);
+    return snapshot.exists() ? snapshot.val() : null;
+  } catch (error) {
+    console.error("Gagal mengambil data saham:", error);
+    return null;
+  }
 }
 
-function initializeStockDetail() {
-    const stockSymbol = getStockSymbolFromUrl();
-    if (stockSymbol && stockData[stockSymbol]) {
-        displayStockDetails(stockData[stockSymbol]);
-    } else {
-        const errorMessage = document.createElement('p');
-        errorMessage.textContent = "Stock details not available.";
-        document.getElementById('stock-info').appendChild(errorMessage);
+// Fungsi pembantu untuk update cell dengan formatting (jika diperlukan)
+function updateCell(cellId, value, formatter) {
+  const cell = document.getElementById(cellId);
+  if (cell) {
+    cell.textContent =
+      value !== undefined && value !== null
+        ? formatter
+          ? formatter(value)
+          : value
+        : "-";
+  }
+}
+
+// Fungsi untuk menampilkan detail saham pada halaman
+async function renderStockDetail() {
+  const stockSymbol = getStockSymbolFromURL();
+  const stockHeader = document.getElementById("stockHeader");
+  console.log("Symbol:", stockSymbol);
+
+  if (!stockSymbol) {
+    if (stockHeader) {
+      stockHeader.innerHTML = "<p>Stock symbol is missing.</p>";
     }
+    return;
+  }
+
+  const stockData = await fetchStockDetail(stockSymbol);
+  console.log("Stock Data:", stockData);
+
+  if (!stockData) {
+    if (stockHeader) {
+      stockHeader.innerHTML = `<p>Stock data not found for symbol: ${stockSymbol}</p>`;
+    }
+    return;
+  }
+
+  // Menampilkan data dasar di bagian header
+  if (stockHeader) {
+    stockHeader.innerHTML = `
+      <h2>${stockData.companyName || "Unknown Company"} (${stockSymbol})</h2>
+      <p><strong>Price:</strong> $${parseFloat(stockData.price || 0).toFixed(
+        2
+      )}</p>
+      <p><strong>Momentum:</strong> ${parseFloat(
+        stockData.momentum || 0
+      ).toFixed(2)}%</p>
+      <p><strong>Market Cap:</strong> ${
+        stockData.financials && stockData.financials.marketValuation
+          ? "$" +
+            parseFloat(
+              stockData.financials.marketValuation.marketCap || 0
+            ).toLocaleString()
+          : "N/A"
+      }</p>
+      <p><strong>Sector:</strong> ${stockData.sector || "Unknown"}</p>
+      <p><strong>P/E Ratio:</strong> ${stockData.peRatio || "N/A"}</p>
+      <p><strong>Dividend Yield:</strong> ${
+        stockData.dividendYieldBasic
+          ? stockData.dividendYieldBasic + "%"
+          : "N/A"
+      }</p>
+      <a href="stock-list.html" class="btn-primary">Back to Stock List</a>
+    `;
+  }
+
+  // Update Profitability Ratios dan Growth Indicators (Profitability)
+  if (stockData.financials && stockData.financials.profitability) {
+    updateCell(
+      "grossProfitMarginQuarter",
+      stockData.financials.profitability.grossProfitMarginQuarter,
+      (val) => parseFloat(val).toFixed(2) + "%"
+    );
+    updateCell(
+      "operatingProfitMarginQuarter",
+      stockData.financials.profitability.operatingProfitMarginQuarter,
+      (val) => parseFloat(val).toFixed(2) + "%"
+    );
+    updateCell(
+      "netProfitMarginQuarter",
+      stockData.financials.profitability.netProfitMarginQuarter,
+      (val) => parseFloat(val).toFixed(2) + "%"
+    );
+    updateCell(
+      "revenueQuarterYoYGrowth",
+      stockData.financials.profitability.revenueQuarterYoYGrowth,
+      (val) => parseFloat(val).toFixed(2) + "%"
+    );
+    updateCell(
+      "grossProfitQuarterYoYGrowth",
+      stockData.financials.profitability.grossProfitQuarterYoYGrowth,
+      (val) => parseFloat(val).toFixed(2) + "%"
+    );
+    updateCell(
+      "netIncomeQuarterYoYGrowth",
+      stockData.financials.profitability.netIncomeQuarterYoYGrowth,
+      (val) => parseFloat(val).toFixed(2) + "%"
+    );
+    // Dividend Metrics
+    updateCell(
+      "dividend",
+      stockData.financials.profitability.dividendQuarter
+    );
+    updateCell(
+      "dividendTTM",
+      stockData.financials.profitability.dividendTTM
+    );
+    updateCell(
+      "payoutRatio",
+      stockData.financials.profitability.payoutRatio,
+      (val) => parseFloat(val).toFixed(2) + "%"
+    );
+    updateCell(
+      "dividendYield",
+      stockData.financials.profitability.dividendYield,
+      (val) => parseFloat(val).toFixed(2) + "%"
+    );
+  }
+
+  // Update Market Capitalization dan Enterprise Value
+  if (stockData.financials && stockData.financials.marketValuation) {
+    updateCell(
+      "marketCap",
+      stockData.financials.marketValuation.marketCap,
+      (val) => "$" + parseFloat(val).toLocaleString()
+    );
+    updateCell(
+      "enterpriseValue",
+      stockData.financials.marketValuation.enterpriseValue,
+      (val) => "$" + parseFloat(val).toLocaleString()
+    );
+    updateCell(
+      "currentSharesOutstanding",
+      stockData.financials.marketValuation.currentSharesOutstanding,
+      (val) => parseFloat(val).toLocaleString()
+    );
+  }
+
+  // Update Balance Sheet
+  if (stockData.financials && stockData.financials.balanceSheet) {
+    updateCell(
+      "totalAssetsQuarter",
+      stockData.financials.balanceSheet.totalAssetsQuarter,
+      (val) => "$" + parseFloat(val).toLocaleString()
+    );
+    updateCell(
+      "totalLiabilitiesQuarter",
+      stockData.financials.balanceSheet.totalLiabilitiesQuarter,
+      (val) => "$" + parseFloat(val).toLocaleString()
+    );
+    updateCell(
+      "workingCapitalQuarter",
+      stockData.financials.balanceSheet.workingCapitalQuarter,
+      (val) => "$" + parseFloat(val).toLocaleString()
+    );
+    updateCell(
+      "totalEquity",
+      stockData.financials.balanceSheet.totalEquity,
+      (val) => "$" + parseFloat(val).toLocaleString()
+    );
+    updateCell(
+      "longTermDebtQuarter",
+      stockData.financials.balanceSheet.longTermDebtQuarter,
+      (val) => "$" + parseFloat(val).toLocaleString()
+    );
+    updateCell(
+      "shortTermDebtQuarter",
+      stockData.financials.balanceSheet.shortTermDebtQuarter,
+      (val) => "$" + parseFloat(val).toLocaleString()
+    );
+    updateCell(
+      "totalDebtQuarter",
+      stockData.financials.balanceSheet.totalDebtQuarter,
+      (val) => "$" + parseFloat(val).toLocaleString()
+    );
+    updateCell(
+      "netDebtQuarter",
+      stockData.financials.balanceSheet.netDebtQuarter,
+      (val) => "$" + parseFloat(val).toLocaleString()
+    );
+  }
+
+  // Update Solvency / Liquidity
+  if (stockData.financials && stockData.financials.liquidityAndSolvency) {
+    updateCell(
+      "currentRatioQuarter",
+      stockData.financials.liquidityAndSolvency.currentRatioQuarter,
+      (val) => parseFloat(val).toFixed(2)
+    );
+    updateCell(
+      "quickRatioQuarter",
+      stockData.financials.liquidityAndSolvency.quickRatioQuarter,
+      (val) => parseFloat(val).toFixed(2)
+    );
+    updateCell(
+      "debtToEquityQuarter",
+      stockData.financials.liquidityAndSolvency.debtToEquityRatioQuarter,
+      (val) => parseFloat(val).toFixed(2)
+    );
+    updateCell(
+      "ltDebtEquityQuarter",
+      stockData.financials.liquidityAndSolvency.ltDebtToEquityQuarter,
+      (val) => parseFloat(val).toFixed(2)
+    );
+    updateCell(
+      "totalLiabilitiesEquityQuarter",
+      stockData.financials.liquidityAndSolvency.totalLiabilitiesToEquityQuarter,
+      (val) => parseFloat(val).toFixed(2)
+    );
+    updateCell(
+      "totalDebtAssetsQuarter",
+      stockData.financials.liquidityAndSolvency.totalDebtToAssetsQuarter,
+      (val) => parseFloat(val).toFixed(2)
+    );
+    updateCell(
+      "financialLeverageQuarter",
+      stockData.financials.liquidityAndSolvency.financialLeverageQuarter,
+      (val) => parseFloat(val).toFixed(2)
+    );
+  }
+
+  // Update Management Effectiveness (Efficiency and Return)
+  if (
+    stockData.financials &&
+    stockData.financials.efficiencyAndReturn
+  ) {
+    updateCell(
+      "returnOnAssetsTTM",
+      stockData.financials.efficiencyAndReturn.returnOnAssetsTTM,
+      (val) => parseFloat(val).toFixed(2) + "%"
+    );
+    updateCell(
+      "returnOnEquityTTM",
+      stockData.financials.efficiencyAndReturn.returnOnEquityTTM,
+      (val) => parseFloat(val).toFixed(2) + "%"
+    );
+    updateCell(
+      "returnOnCapitalEmployedTTM",
+      stockData.financials.efficiencyAndReturn.returnOnCapitalEmployedTTM,
+      (val) => parseFloat(val).toFixed(2) + "%"
+    );
+    updateCell(
+      "returnOnInvestedCapitalTTM",
+      stockData.financials.efficiencyAndReturn.returnOnInvestedCapitalTTM,
+      (val) => parseFloat(val).toFixed(2) + "%"
+    );
+    updateCell(
+      "daysSalesOutstandingQuarter",
+      stockData.financials.efficiencyAndReturn.daysSalesOutstandingQuarter,
+      (val) => parseFloat(val).toFixed(2)
+    );
+    updateCell(
+      "daysInventoryQuarter",
+      stockData.financials.efficiencyAndReturn.daysInventoryQuarter,
+      (val) => parseFloat(val).toFixed(2)
+    );
+    updateCell(
+      "daysPayablesOutstandingQuarter",
+      stockData.financials.efficiencyAndReturn.daysPayablesOutstandingQuarter,
+      (val) => parseFloat(val).toFixed(2)
+    );
+    updateCell(
+      "cashConversionCycleQuarter",
+      stockData.financials.efficiencyAndReturn.cashConversionCycleQuarter,
+      (val) => parseFloat(val).toFixed(2)
+    );
+    updateCell(
+      "receivablesTurnoverQuarter",
+      stockData.financials.efficiencyAndReturn.receivablesTurnoverQuarter,
+      (val) => parseFloat(val).toFixed(2)
+    );
+  }
+
+  // Update Price Performance
+  if (stockData.financials && stockData.financials.stockPerformance) {
+    updateCell(
+      "priceReturns1Week",
+      stockData.financials.stockPerformance["1WeekPriceReturns"],
+      (val) => parseFloat(val).toFixed(2) + "%"
+    );
+    // Contoh: jika ada data 52 Week High/Low (sesuaikan dengan key yang tersedia)
+    updateCell(
+      "week52High",
+      stockData.financials.stockPerformance["1WeekHigh"],
+      (val) => "$" + parseFloat(val).toLocaleString()
+    );
+    // Tambahkan update untuk priceReturns1Year, priceReturns3Year, dst. jika datanya tersedia
+  }
 }
 
-// Initialize the stock detail page
-initializeStockDetail();
+// Jalankan render saat halaman selesai dimuat
+window.onload = renderStockDetail;

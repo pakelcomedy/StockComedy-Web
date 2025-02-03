@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
-import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
+import { getDatabase, ref, get } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDUKi9EMIGputcL32kdGs7W-bhaiGRYKYI",
@@ -12,13 +12,14 @@ const firebaseConfig = {
     measurementId: "G-T8XFP8TFGV"
 };
 
+// Inisialisasi Firebase
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db = getDatabase(app);
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const newsGrid = document.getElementById('news-grid');
 
-    // Function to create and display each news card
+    // Fungsi untuk membuat kartu berita
     function createNewsCard(news) {
         const card = document.createElement('div');
         card.classList.add('news-card');
@@ -33,40 +34,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const date = document.createElement('p');
         date.classList.add('news-date');
-        date.textContent = `Published on: ${news.timestamp}`;
+        date.textContent = `Published on: ${news.published_date}`;
 
         const sectors = document.createElement('p');
         sectors.classList.add('news-sectors');
         sectors.textContent = `Impact Sectors: ${news.impacting_sectors.join(', ')}`;
 
-        // Append the elements to the card
+        // Tambahkan elemen ke dalam kartu
         card.appendChild(title);
         card.appendChild(summary);
         card.appendChild(date);
         card.appendChild(sectors);
 
-        // Append the card to the grid
+        // Tambahkan kartu ke dalam grid
         newsGrid.appendChild(card);
     }
 
-    // Fetch news data from Firestore
+    // Fungsi untuk mengambil data berita dari Realtime Database
     async function fetchNews() {
         try {
-            const newsCollection = collection(db, "news");
-            const newsSnapshot = await getDocs(newsCollection);
+            const newsRef = ref(db, "news");
+            const snapshot = await get(newsRef);
 
-            newsSnapshot.forEach(doc => {
-                const news = doc.data();
-                // Format timestamp to a readable date
-                const formattedDate = new Date(news.timestamp).toLocaleString();
-                news.timestamp = formattedDate;
-                createNewsCard(news);
-            });
+            if (snapshot.exists()) {
+                const newsData = snapshot.val();
+                
+                // Loop melalui objek berita
+                Object.keys(newsData).forEach(newsId => {
+                    const news = newsData[newsId];
+                    createNewsCard(news);
+                });
+            } else {
+                console.log("No news data available.");
+            }
         } catch (error) {
-            console.error("Error getting news: ", error);
+            console.error("Error fetching news: ", error);
         }
     }
 
-    // Call the function to fetch news
+    // Panggil fungsi untuk mengambil data berita
     fetchNews();
 });
